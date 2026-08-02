@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — Habit Garden</title>
+    <meta
+      name="description"
+      content="Habit Garden collects nothing. Everything you record stays on your device. This page explains exactly what that means."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!--
+  ============================================================================
+  BEFORE PUBLISHING
+  ----------------------------------------------------------------------------
+  1. Replace every [PLACEHOLDER] below. They are rendered with a dashed
+     terracotta outline so they are impossible to miss on the page itself:
+        [DATE]                    the date you publish this
+        [YOUR NAME OR COMPANY]    (x3) must match your Play developer name
+        [YOUR CONTACT EMAIL]      (x2, one is a mailto: href) must match the
+                                  contact email on the Play listing
+        [YOUR POSTAL ADDRESS]     only if you are required to publish one;
+                                  otherwise delete that whole <p>
+  2. Delete the .todo CSS rule once no placeholders remain, so a stray one
+     cannot silently blend in.
+  3. This page is fully self-contained: no external fonts, stylesheets,
+     scripts, images or trackers. That is deliberate. A privacy policy that
+     loads a Google font is a bad joke. Do not add analytics to it.
+  4. Facts on this page that depend on the shipped build — "makes no network
+     requests", "does not hold the internet permission", the five-permission
+     list, "automatic cloud backup is switched off", "does not request the
+     advertising ID", "no export or backup feature" — are listed with their
+     source of truth in 07-privacy-policy.md. Re-check them against the release
+     you actually ship, using the MERGED manifest rather than src/main:
+
+       aapt2 dump permissions android/app/build/outputs/apk/release/app-release.apk
+
+     As verified at the time of writing, that dump returns exactly:
+       ACCESS_NETWORK_STATE, POST_NOTIFICATIONS, RECEIVE_BOOT_COMPLETED,
+       VIBRATE, WAKE_LOCK, and com.habitgarden.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+     — with no INTERNET, and android:allowBackup="false". A dependency upgrade
+     can change that list without anyone touching a manifest file, so re-run it
+     before each release and update this page if it differs.
+  ============================================================================
+-->
+
+    <style>
+      :root {
+        --paper: #ede8d0;
+        --card: #f8f5e6;
+        --cream: #f9f4ed;
+        --ink: #201e1d;
+        --clay: #b2622d;
+        --clay-d: #8c491a;
+        --leaf: #56633f;
+        --sage: #7a8a5e;
+        --moss: #3d472b;
+
+        --bg: var(--paper);
+        --surface: var(--card);
+        --fg: var(--ink);
+        --muted: #5a544a;
+        --rule: rgba(32, 30, 29, 0.14);
+        --accent: var(--clay-d);
+        --quiet: var(--leaf);
+
+        --display: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia,
+          'Times New Roman', serif;
+        --body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #1a1917;
+          --surface: #232120;
+          --fg: #ece7db;
+          --muted: #a8a094;
+          --rule: rgba(236, 231, 219, 0.16);
+          --accent: #d68c53;
+          --quiet: #9fb07d;
+        }
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--body);
+        font-size: 17px;
+        line-height: 1.65;
+        letter-spacing: -0.005em;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .wrap {
+        max-width: 44rem;
+        margin: 0 auto;
+        padding: 3rem 1.35rem 5rem;
+      }
+
+      header {
+        margin-bottom: 2.5rem;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 1.75rem;
+      }
+      .brand svg {
+        flex: none;
+        display: block;
+      }
+      .brand span {
+        font-family: var(--display);
+        font-size: 1.1rem;
+        letter-spacing: -0.01em;
+        color: var(--quiet);
+      }
+
+      h1 {
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: clamp(1.9rem, 6vw, 2.5rem);
+        line-height: 1.15;
+        letter-spacing: -0.022em;
+        margin: 0 0 0.6rem;
+      }
+
+      .updated {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      h2 {
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: 1.32rem;
+        line-height: 1.3;
+        letter-spacing: -0.014em;
+        margin: 3rem 0 0.85rem;
+        padding-top: 1.6rem;
+        border-top: 1px solid var(--rule);
+      }
+      h2:first-of-type {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      h3 {
+        font-family: var(--body);
+        font-weight: 600;
+        font-size: 1rem;
+        margin: 1.9rem 0 0.5rem;
+      }
+
+      p {
+        margin: 0 0 1.05rem;
+      }
+
+      ul {
+        margin: 0 0 1.05rem;
+        padding-left: 1.25rem;
+      }
+      li {
+        margin-bottom: 0.5rem;
+      }
+      li::marker {
+        color: var(--sage);
+      }
+
+      strong {
+        font-weight: 600;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+          monospace;
+        font-size: 0.875em;
+        background: var(--surface);
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        padding: 0.1em 0.35em;
+      }
+
+      /* The "nothing at all" panel — the one thing on the page people will read. */
+      .panel {
+        background: var(--surface);
+        border: 1px solid var(--rule);
+        border-radius: 22px 26px 20px 28px;
+        padding: 1.5rem 1.6rem 0.6rem;
+        margin: 0 0 1.5rem;
+      }
+      .panel ul {
+        margin-bottom: 1rem;
+      }
+      .panel p:last-child {
+        margin-bottom: 1rem;
+      }
+
+      /* Permissions table -> stacked cards on narrow screens. */
+      .perm {
+        border-top: 1px solid var(--rule);
+        padding: 1rem 0 0.25rem;
+      }
+      .perm:last-of-type {
+        border-bottom: 1px solid var(--rule);
+        margin-bottom: 1.05rem;
+      }
+      .perm dt {
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+      .perm dt code {
+        font-weight: 400;
+      }
+      .perm dd {
+        margin: 0 0 0.9rem;
+        color: var(--muted);
+      }
+
+      dl {
+        margin: 0 0 1.05rem;
+      }
+
+      footer {
+        margin-top: 3.5rem;
+        padding-top: 1.6rem;
+        border-top: 1px solid var(--rule);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      /* DELETE THIS RULE once every placeholder has been replaced. */
+      .todo {
+        outline: 1px dashed var(--clay);
+        outline-offset: 2px;
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      :root[data-theme='dark'] {
+        --bg: #1a1917;
+        --surface: #232120;
+        --fg: #ece7db;
+        --muted: #a8a094;
+        --rule: rgba(236, 231, 219, 0.16);
+        --accent: #d68c53;
+        --quiet: #9fb07d;
+      }
+      :root[data-theme='light'] {
+        --bg: #ede8d0;
+        --surface: #f8f5e6;
+        --fg: #201e1d;
+        --muted: #5a544a;
+        --rule: rgba(32, 30, 29, 0.14);
+        --accent: #8c491a;
+        --quiet: #56633f;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+          color: #000;
+          font-size: 11pt;
+        }
+        .wrap {
+          max-width: none;
+          padding: 0;
+        }
+        h2 {
+          page-break-after: avoid;
+        }
+        .todo {
+          outline: 1px solid #000;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand">
+          <!-- The app's sprout, drawn inline so this page fetches nothing. -->
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 21V10"
+              stroke="#56633f"
+              stroke-width="1.9"
+              stroke-linecap="round"
+            />
+            <path
+              d="M12 12.5C12 9.2 9.6 6.6 6.3 6.2c-.5 3.3 1.9 6.1 5.7 6.3Z"
+              fill="#7a8a5e"
+            />
+            <path
+              d="M12 11C12 7.4 14.6 4.6 18.1 4.2c.5 3.6-2.2 6.6-6.1 6.8Z"
+              fill="#b2622d"
+            />
+          </svg>
+          <span>Habit Garden</span>
+        </div>
+
+        <h1>Privacy Policy</h1>
+        <p class="updated">
+          Last updated: <span class="todo">02/08/2026</span>
+        </p>
+      </header>
+
+      <p>
+        Habit Garden is an Android app published by
+        <span class="todo">Stephen Perrin</span> (&ldquo;we&rdquo;,
+        &ldquo;us&rdquo;). This page explains what happens to your information
+        when you use it.
+      </p>
+
+      <p>
+        It is short, because the app does very little with your information. It
+        does not send it anywhere.
+      </p>
+
+      <div class="panel">
+        <h2 style="margin-top: 0; border-top: none; padding-top: 0">
+          The short version
+        </h2>
+        <ul>
+          <li>
+            <strong>We do not collect any information about you.</strong> Not
+            your name, not an email address, not your location, not an
+            identifier of any kind.
+          </li>
+          <li>
+            <strong>The app has no account and no sign-up.</strong> You open it
+            and use it.
+          </li>
+          <li>
+            <strong>The app makes no network requests.</strong> It does not even
+            hold the Android permission required to make one. It works with the
+            phone in aeroplane mode, permanently, and on a phone that has never
+            been connected to anything.
+          </li>
+          <li>
+            <strong>Everything you record stays on your device</strong>, in one
+            database file belonging to the app.
+          </li>
+          <li>
+            <strong>We have no server</strong>, so there is nothing of yours on
+            one.
+          </li>
+          <li>
+            <strong
+              >There are no ads, no analytics and no crash reporting</strong
+            >, and no third-party code in the app that sends anything anywhere.
+          </li>
+          <li>
+            <strong>Uninstalling the app deletes everything it stored</strong>,
+            permanently.
+          </li>
+        </ul>
+      </div>
+
+      <h2>What information we collect</h2>
+
+      <p><strong>None.</strong></p>
+
+      <p>
+        We do not collect, receive, transmit, sell, rent, share or otherwise
+        process any personal information. There is no mechanism in the app by
+        which information could reach us: the app makes no network requests, and
+        the published build does not hold the Android permission that would let
+        it make one.
+      </p>
+
+      <p>
+        Specifically, and to be unambiguous, the app does
+        <strong>not</strong> collect or transmit:
+      </p>
+
+      <ul>
+        <li>
+          your name, email address, phone number, postal address or date of
+          birth
+        </li>
+        <li>account credentials of any kind &mdash; there are no accounts</li>
+        <li>your location, approximate or precise</li>
+        <li>your contacts, calendar, photos, videos, audio or files</li>
+        <li>
+          your device&rsquo;s advertising ID, or any other advertising or
+          tracking identifier
+        </li>
+        <li>device identifiers, IP address, or hardware information</li>
+        <li>app usage or interaction analytics</li>
+        <li>crash logs or diagnostic reports</li>
+        <li>health, fitness or medical information</li>
+        <li>
+          financial or payment information &mdash; the app has no purchases of
+          any kind
+        </li>
+      </ul>
+
+      <h2>What the app stores on your device</h2>
+
+      <p>
+        Everything you enter is written to a single SQLite database file named
+        <code>habit-garden.sqlite</code>, held in the app&rsquo;s own private
+        storage area on your device. On Android, that area is readable only by
+        this app; other apps cannot open it.
+      </p>
+
+      <p>That file contains:</p>
+
+      <ul>
+        <li>
+          <strong>Your habits</strong> &mdash; the name you gave each one, how
+          it is measured (yes/no, a quantity, a duration or free text), the unit
+          you named, its colour, its position in the list, and when it was
+          created and last changed.
+        </li>
+        <li>
+          <strong>Your daily entries</strong> &mdash; for each habit and each
+          date you logged, the value you recorded: a number, a yes, or the words
+          you typed.
+        </li>
+        <li>
+          <strong>Your day notes</strong> &mdash; the free text you write in
+          &ldquo;Note for the day&rdquo;.
+        </li>
+        <li>
+          <strong>Your preferences</strong> &mdash; whether days are drawn as
+          blooms or dots, whether press sounds are on, which day the week starts
+          on, and whether you have finished the welcome screens.
+        </li>
+        <li>
+          <strong>Your reminder settings</strong> &mdash; whether the daily
+          nudge is on, at what time, on which weekdays, and in which of the
+          three tones.
+        </li>
+      </ul>
+
+      <p>
+        This information never leaves your device. We cannot see it. Nobody else
+        can either.
+      </p>
+
+      <h2>Permissions the app asks for</h2>
+
+      <p>
+        The published version of the app holds exactly five Android permissions,
+        and they all exist to deliver one optional daily reminder. You can check
+        the full list yourself on the app&rsquo;s Google Play page, under
+        <strong>App permissions &rarr; See more</strong>.
+      </p>
+
+      <dl>
+        <div class="perm">
+          <dt>Notifications <code>POST_NOTIFICATIONS</code></dt>
+          <dd>
+            To show the optional daily reminder. This is the only one you are
+            ever asked to grant. Android asks the first time it is needed, and
+            you may refuse &mdash; if you do, everything else in the app works
+            exactly as before, and only the reminder will not appear.
+          </dd>
+        </div>
+        <div class="perm">
+          <dt>Run at startup <code>RECEIVE_BOOT_COMPLETED</code></dt>
+          <dd>
+            Android forgets scheduled alarms when the phone restarts. This lets
+            the app re-schedule your reminder after a reboot; without it, the
+            reminder would silently stop the first time you restarted your
+            phone. It does not let the app do anything else at startup.
+          </dd>
+        </div>
+        <div class="perm">
+          <dt>Prevent the phone from sleeping <code>WAKE_LOCK</code></dt>
+          <dd>
+            Held for the fraction of a second it takes to build and post the
+            reminder that the alarm has just woken the phone for. Without it,
+            Android can cut that work off half-finished.
+          </dd>
+        </div>
+        <div class="perm">
+          <dt>Vibrate <code>VIBRATE</code></dt>
+          <dd>
+            The reminder&rsquo;s vibration, if your own notification settings
+            ask for one.
+          </dd>
+        </div>
+        <div class="perm">
+          <dt>View network connections <code>ACCESS_NETWORK_STATE</code></dt>
+          <dd>
+            The honest one. This is required by a background-scheduling library
+            that the notification scheduler depends on: it registers a
+            connectivity listener when the app starts, and fails outright
+            without the permission. It reveals only whether a network exists
+            &mdash; not what is on it, and not who you are.
+            <strong>The app never uses a network.</strong>
+          </dd>
+        </div>
+      </dl>
+
+      <p>
+        You may also see a permission named
+        <code>com.habitgarden.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code> in
+        a technical listing. That one is generated automatically by an Android
+        support library and is enforced against the app itself &mdash; it exists
+        so that the app&rsquo;s own internal broadcasts cannot be read by other
+        apps. It grants nothing to anyone.
+      </p>
+
+      <h3>The app does not hold the internet permission</h3>
+
+      <p>
+        The release build of Habit Garden does not have
+        <code>android.permission.INTERNET</code>. It is not merely unused
+        &mdash; it is removed from the shipped package, so the app is incapable
+        of opening a network connection even if some future bug tried to. Google
+        Play&rsquo;s permission list for this app has no internet line in it.
+      </p>
+
+      <p>
+        The app also does <strong>not</strong> request permission to use your
+        location, your camera, your microphone, your contacts, your calendar,
+        your photos, your files, your call log or your SMS messages, and it does
+        not request the advertising ID.
+      </p>
+
+      <h2>Notifications</h2>
+
+      <p>
+        If you turn the daily nudge on, the app asks Android&rsquo;s own
+        notification system to show one notification, at the time and on the
+        weekdays you chose. The text of that notification is composed on your
+        device and stored on your device.
+      </p>
+
+      <p>
+        There is no push service involved. Nothing is sent to Google, to
+        Firebase, to us, or to anyone else in order to deliver it. If you turn
+        the nudge off, or refuse the notification permission, no notification is
+        ever scheduled.
+      </p>
+
+      <h2>What we share</h2>
+
+      <p><strong>Nothing</strong>, because we have nothing.</p>
+
+      <p>
+        We do not share, sell, rent, disclose or transfer any information to
+        anyone &mdash; not to advertisers, not to analytics providers, not to
+        data brokers, not to partners, and not to affiliates. There is no
+        category of third party with whom we share information, because no
+        information ever reaches us to be shared.
+      </p>
+
+      <h2>Third-party services and code</h2>
+
+      <p>
+        The app is built with open-source software libraries (for example, its
+        database engine and its notification scheduler). These run entirely on
+        your device as part of the app.
+        <strong
+          >None of them contacts a network, and none of them is an analytics,
+          advertising, attribution or crash-reporting service.</strong
+        >
+        There is no third-party code in this app that observes how you use it.
+      </p>
+
+      <p>
+        There is one thing outside our control, and it is worth stating plainly:
+        <strong>Google Play itself.</strong> If you installed the app from the
+        Google Play Store, then Google &mdash; as the distributor of the app and
+        the operator of your device&rsquo;s operating system &mdash; collects
+        its own information about the download and, depending on your Android
+        settings, may collect crash and diagnostic data. That is governed by
+        <a href="https://policies.google.com/privacy" rel="noopener"
+          >Google&rsquo;s Privacy Policy</a
+        >
+        and by your own Android settings, not by us. We receive from Google only
+        aggregate, anonymised statistics in the Play Console &mdash; for
+        example, &ldquo;this many devices installed the app this week&rdquo;, or
+        an anonymised crash count. We cannot identify you from any of it, and it
+        contains nothing you have recorded in the app.
+      </p>
+
+      <h2>Backups</h2>
+
+      <p>
+        Automatic Android cloud backup is <strong>switched off</strong> for this
+        app. That means the app&rsquo;s database is not copied to your Google
+        Drive backup, and it is not transferred to a new phone when you set one
+        up from a backup.
+      </p>
+
+      <p>
+        <strong
+          >One consequence you should know about before you rely on the
+          app:</strong
+        >
+        there is no export, no backup and no import feature. If you uninstall
+        the app, reset the phone, or lose the device, everything you recorded is
+        gone and cannot be recovered &mdash; not by you, and not by us. That is
+        the direct cost of a design in which nothing ever leaves your device,
+        and we would rather tell you now than after it has happened.
+      </p>
+
+      <h2>How your information is protected</h2>
+
+      <p>
+        The database sits in the app&rsquo;s private storage, which
+        Android&rsquo;s application sandbox keeps other apps out of. On a device
+        with a screen lock, Android&rsquo;s own full-device encryption protects
+        it at rest along with everything else on the phone.
+      </p>
+
+      <p>
+        To be precise rather than reassuring:
+        <strong
+          >the app does not add its own layer of encryption to the database
+          file</strong
+        >, and it does not lock itself behind a PIN or a fingerprint. Anyone who
+        can unlock your phone can open the app and read what is in it, in the
+        same way they could read your notes or your photos. If what you record
+        is sensitive, use a device lock.
+      </p>
+
+      <h2>How long information is kept, and how to delete it</h2>
+
+      <p>Information stays on your device for as long as you keep it there.</p>
+
+      <ul>
+        <li>
+          <strong>To delete one entry</strong>, open that day and clear the
+          value. The app stores no row at all for a day you have not logged, so
+          clearing it removes it.
+        </li>
+        <li>
+          <strong
+            >To delete a habit and everything ever recorded against it</strong
+          >, open Settings &rarr; My habits, choose the habit, and pull it out.
+          The app warns you first. This cannot be undone.
+        </li>
+        <li>
+          <strong>To delete everything</strong>, uninstall the app. Android
+          deletes the app&rsquo;s private storage, and the database with it.
+          Nothing survives anywhere else.
+        </li>
+      </ul>
+
+      <p>
+        There is no server-side copy to request the deletion of, no account to
+        close and no email to send. Uninstalling is complete and immediate
+        deletion.
+      </p>
+
+      <h2>Your rights</h2>
+
+      <p>
+        Privacy laws in various places &mdash; including the GDPR in the UK and
+        the EU, and the CCPA in California &mdash; give you rights to access,
+        correct, export and delete personal information that a company holds
+        about you, and to object to it being sold or used for profiling.
+      </p>
+
+      <p>
+        <strong>We hold no personal information about you at all</strong>, so
+        there is nothing for us to give you access to, nothing to correct,
+        nothing to export, nothing to delete and nothing to object to. You
+        already have complete and direct access to everything the app has
+        recorded: it is on your device, in the app, and you can change or
+        destroy any of it at any time without asking us.
+      </p>
+
+      <p>
+        If you believe otherwise, or you would like this confirmed in writing,
+        write to the address at the bottom of this page.
+      </p>
+
+      <h2>Children</h2>
+
+      <p>
+        Habit Garden is not directed at children, is not designed to appeal to
+        children, and is not listed in Google Play&rsquo;s Designed for Families
+        programme.
+      </p>
+
+      <p>
+        It collects no information from anyone, of any age. There is therefore
+        no information about a child for us to have knowingly collected, and
+        nothing for a parent or guardian to ask us to delete. If you are a
+        parent or guardian and have a question about this, please write to us.
+      </p>
+
+      <h2>Changes to this policy</h2>
+
+      <p>
+        If the app ever changes in a way that affects this policy &mdash; for
+        example, if a future version adds an optional backup or sync feature
+        &mdash; this page will be updated before that version is released, and
+        the &ldquo;Last updated&rdquo; date at the top will change.
+      </p>
+
+      <p>
+        Substantive changes will also be noted in the app&rsquo;s release notes
+        on Google Play. We will never begin collecting information without
+        saying so here first, in plain words, before it happens.
+      </p>
+
+      <p>
+        Older versions of this policy are not archived. If you need to know what
+        this page said on a particular date, ask.
+      </p>
+
+      <h2>Contact</h2>
+
+      <p>Questions about this policy, or about the app and your information:</p>
+
+      <p>
+        <a class="todo" href="mailto:stephen.prn.dev@gmail.com"
+          >stephen.prn.dev@gmail.com
+        </a>
+      </p>
+
+      <p><span class="todo">Stephen Perrin</span></p>
+
+      <!-- Delete the next line unless a law that applies to you requires a published address. -->
+      <p>
+        <span class="todo"
+          >[YOUR POSTAL ADDRESS &mdash; delete this line if not required]</span
+        >
+      </p>
+
+      <p>
+        We will reply, though possibly not quickly &mdash; this is a small app.
+      </p>
+
+      <footer>
+        <p>
+          Habit Garden &mdash; a quiet daily habit tracker. Everything stays on
+          your phone.
+        </p>
+        <p>
+          This page loads no fonts, no scripts, no images and no trackers from
+          anywhere. It seemed like the least it could do.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
