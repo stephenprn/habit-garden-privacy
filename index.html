@@ -3,16 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Privacy Policy — Habit Garden</title>
+    <title>Privacy Policy — Bonsai</title>
     <meta
       name="description"
-      content="Habit Garden collects nothing. Everything you record stays on your device. This page explains exactly what that means."
+      content="Bonsai collects nothing. Everything you record stays on your device. This page explains exactly what that means."
     />
     <meta name="robots" content="index, follow" />
     <meta name="color-scheme" content="light dark" />
 
-    <!-- Maintenance notes are kept in the app repository, not here: this file
-         is served, and an HTML comment is served with it. -->
+    <!-- Deployed copy. The source of truth is docs/store/listing/07-privacy-policy.html
+         in the app repository; edit it there and copy the file here, so the
+         hosted policy and the one the build is checked against cannot drift.
+
+         The "If you are using Habit Garden" section is the one part that does
+         NOT come from that file: it exists only because this single URL serves
+         two published listings, and it can be deleted once Habit Garden is
+         unpublished. -->
 
     <style>
       :root {
@@ -285,7 +291,7 @@
               fill="#b2622d"
             />
           </svg>
-          <span>Habit Garden</span>
+          <span>Bonsai</span>
         </div>
 
         <h1>Privacy Policy</h1>
@@ -295,7 +301,7 @@
       </header>
 
       <p>
-        Habit Garden is an Android app published by
+        Bonsai is an Android app published by
         <span>Stephen Perrin</span> (&ldquo;we&rdquo;,
         &ldquo;us&rdquo;). This page explains what happens to your information
         when you use it.
@@ -389,7 +395,7 @@
 
       <p>
         Everything you enter is written to a single SQLite database file named
-        <code>habit-garden.sqlite</code>, held in the app&rsquo;s own private
+        <code>bonsai.sqlite</code>, held in the app&rsquo;s own private
         storage area on your device. On Android, that area is readable only by
         this app; other apps cannot open it.
       </p>
@@ -425,17 +431,20 @@
       </ul>
 
       <p>
-        This information never leaves your device. We cannot see it. Nobody else
-        can either.
+        This information never leaves your device unless you save or share a copy
+        of it yourself, which the Backups section below describes. We cannot see
+        it. Nobody else can either.
       </p>
 
       <h2>Permissions the app asks for</h2>
 
       <p>
-        The published version of the app holds exactly five Android permissions,
-        and they all exist to deliver one optional daily reminder. You can check
-        the full list yourself on the app&rsquo;s Google Play page, under
-        <strong>App permissions &rarr; See more</strong>.
+        The published version of the app holds six Android permissions, and
+        they all exist to deliver one optional daily reminder. You can check the
+        full list yourself on the app&rsquo;s Google Play page, under
+        <strong>App permissions &rarr; See more</strong>, and this page names
+        every one of them &mdash; a policy that invites you to check its own
+        list has to be complete or it is worse than one that does not.
       </p>
 
       <dl>
@@ -483,11 +492,24 @@
             <strong>The app never uses a network.</strong>
           </dd>
         </div>
+        <div class="perm">
+          <dt>
+            Close the notification shade
+            <code>BROADCAST_CLOSE_SYSTEM_DIALOGS</code>
+          </dt>
+          <dd>
+            Android 11 and older only &mdash; it is capped at
+            <code>maxSdkVersion=&quot;30&quot;</code>, so on Android 12 and
+            later it is not requested at all. It lets the notification drawer
+            slide shut when you tap the reminder, instead of the app opening
+            behind a shade you then have to dismiss by hand.
+          </dd>
+        </div>
       </dl>
 
       <p>
         You may also see a permission named
-        <code>com.habitgarden.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code> in
+        <code>com.stephenprn.bonsai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code> in
         a technical listing. That one is generated automatically by an Android
         support library and is enforced against the app itself &mdash; it exists
         so that the app&rsquo;s own internal broadcasts cannot be read by other
@@ -497,7 +519,7 @@
       <h3>The app does not hold the internet permission</h3>
 
       <p>
-        The release build of Habit Garden does not have
+        The release build of Bonsai does not have
         <code>android.permission.INTERNET</code>. It is not merely unused
         &mdash; it is removed from the shipped package, so the app is incapable
         of opening a network connection even if some future bug tried to. Google
@@ -553,6 +575,17 @@
       </p>
 
       <p>
+        Two buttons in Settings hand a link to another app:
+        <strong>Rate this app</strong> opens this app&rsquo;s own page on Google
+        Play, and <strong>Tell a friend</strong> puts the same address into your
+        phone&rsquo;s share sheet. Both open something else &mdash; a store, a
+        messaging app, a browser &mdash; and what happens there is governed by
+        that app and by Google, not by us. Neither carries any identifier, any
+        referral code or any count of how often it was used; there is nowhere for
+        such a number to go. The app itself still makes no network request.
+      </p>
+
+      <p>
         There is one thing outside our control, and it is worth stating plainly:
         <strong>Google Play itself.</strong> If you installed the app from the
         Google Play Store, then Google &mdash; as the distributor of the app and
@@ -580,14 +613,36 @@
 
       <p>
         <strong
+          >Which is why the way out is in your hands:</strong
+        >
+        Settings will write everything you have recorded &mdash; every habit,
+        every day, every note &mdash; into one file, either an archive the app
+        reads back on a new phone or a spreadsheet that opens anywhere. The same
+        screen restores from an archive, and can draw a month or a year as a
+        picture to keep or send.
+      </p>
+
+      <p>
+        None of that is automatic and none of it is a transfer to us. Each one
+        happens only when you ask for it, and Android&rsquo;s own file picker
+        decides where the file lands &mdash; the app is handed the one place you
+        chose and can write nowhere else. Sharing a picture hands it to whichever
+        app you pick from the share sheet, and what that app then does with it is
+        governed by that app rather than by this one. The app itself still makes
+        no network request and does not hold the internet permission.
+      </p>
+
+      <p>
+        <strong
           >One consequence you should know about before you rely on the
           app:</strong
         >
-        there is no export, no backup and no import feature. If you uninstall
-        the app, reset the phone, or lose the device, everything you recorded is
-        gone and cannot be recovered &mdash; not by you, and not by us. That is
-        the direct cost of a design in which nothing ever leaves your device,
-        and we would rather tell you now than after it has happened.
+        nothing is copied off the device unless you copy it. If you uninstall the
+        app, reset the phone, or lose the device without having saved a copy,
+        everything you recorded is gone and cannot be recovered &mdash; not by
+        you, and not by us. That is the direct cost of a design in which nothing
+        leaves your device on its own, and we would rather tell you now than
+        after it has happened.
       </p>
 
       <h2>How your information is protected</h2>
@@ -665,7 +720,7 @@
       <h2>Children</h2>
 
       <p>
-        Habit Garden is not directed at children, is not designed to appeal to
+        Bonsai is not directed at children, is not designed to appeal to
         children, and is not listed in Google Play&rsquo;s Designed for Families
         programme.
       </p>
@@ -675,6 +730,38 @@
         no information about a child for us to have knowingly collected, and
         nothing for a parent or guardian to ask us to delete. If you are a
         parent or guardian and have a question about this, please write to us.
+      </p>
+
+      <h2>If you are using Habit Garden</h2>
+
+      <p>
+        Bonsai was called <strong>Habit Garden</strong> until August 2026. It is
+        the same app, rebuilt, and on Google Play it is a separate listing
+        &mdash; so Habit Garden is still installed on some phones and still has
+        its own page. This policy covers both, and everything above applies to
+        both, with two differences that are in Habit Garden&rsquo;s favour:
+      </p>
+
+      <ul>
+        <li>
+          <strong>Habit Garden has no export, no backup and no import.</strong>
+          The sections above describing the archive, the spreadsheet, the poster
+          and the share sheet describe Bonsai only. In Habit Garden there is no
+          way to copy anything out of the app at all &mdash; which also means
+          there is no way to recover it if the phone is lost.
+        </li>
+        <li>
+          <strong>Habit Garden asks for five Android permissions, not six.</strong>
+          It does not include <code>BROADCAST_CLOSE_SYSTEM_DIALOGS</code>. The
+          other five are the same, and are used for the same reasons.
+        </li>
+      </ul>
+
+      <p>
+        Neither app sends anything anywhere. Neither has an account, an
+        analytics library, an advertising identifier or the internet permission.
+        Habit Garden will not be updated again; it is being retired, and
+        uninstalling it deletes everything it held, as described above.
       </p>
 
       <h2>Changes to this policy</h2>
@@ -715,7 +802,7 @@
 
       <footer>
         <p>
-          Habit Garden &mdash; a quiet daily habit tracker. Everything stays on
+          Bonsai &mdash; a quiet daily habit tracker. Everything stays on
           your phone.
         </p>
         <p>
